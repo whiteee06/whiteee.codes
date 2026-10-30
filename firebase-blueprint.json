@@ -1,0 +1,128 @@
+{
+  "entities": {
+    "PersonalInfo": {
+      "title": "Personal Information",
+      "description": "General profile and contact information for the portfolio owner.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string", "maxLength": 100 },
+        "shortName": { "type": "string", "maxLength": 50 },
+        "brandName": { "type": "string", "maxLength": 100 },
+        "brandTagline": { "type": "string", "maxLength": 150 },
+        "logoUrl": { "type": "string", "maxLength": 500 },
+        "title": { "type": "string", "maxLength": 150 },
+        "tagline": { "type": "string", "maxLength": 300 },
+        "shortBio": { "type": "string", "maxLength": 2000 },
+        "status": { "type": "string", "maxLength": 150 },
+        "location": { "type": "string", "maxLength": 150 },
+        "email": { "type": "string", "maxLength": 100 },
+        "phone": { "type": "string", "maxLength": 30 },
+        "phoneFormatted": { "type": "string", "maxLength": 30 },
+        "whatsappUrl": { "type": "string", "maxLength": 200 },
+        "githubPlaceholder": { "type": "string", "maxLength": 200 },
+        "linkedinPlaceholder": { "type": "string", "maxLength": 200 }
+      },
+      "required": ["name", "email", "phone"]
+    },
+    "SkillItem": {
+      "title": "Skill Item",
+      "description": "A technical or conceptual skill item.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 100 },
+        "name": { "type": "string", "maxLength": 100 },
+        "category": { "type": "string", "enum": ["ai", "dev", "workflow"] },
+        "description": { "type": "string", "maxLength": 500 },
+        "icon": { "type": "string", "maxLength": 50 },
+        "badge": { "type": "string", "maxLength": 50 }
+      },
+      "required": ["id", "name", "category", "description"]
+    },
+    "ProjectItem": {
+      "title": "Project Item",
+      "description": "A featured or upcoming project portfolio entry.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 100 },
+        "title": { "type": "string", "maxLength": 150 },
+        "tagline": { "type": "string", "maxLength": 250 },
+        "description": { "type": "string", "maxLength": 1500 },
+        "status": { "type": "string", "enum": ["Live Demo", "In Progress", "Concept"] },
+        "liveUrl": { "type": "string", "maxLength": 300 },
+        "githubUrl": { "type": "string", "maxLength": 300 },
+        "isUpcoming": { "type": "boolean" },
+        "tags": { "type": "array" },
+        "keyFeatures": { "type": "array" },
+        "techStack": { "type": "array" }
+      },
+      "required": ["id", "title", "description", "status"]
+    },
+    "ServiceItem": {
+      "title": "Service Item",
+      "description": "Service offering provided by Nithiarasu G.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 100 },
+        "title": { "type": "string", "maxLength": 150 },
+        "description": { "type": "string", "maxLength": 1000 },
+        "icon": { "type": "string", "maxLength": 50 },
+        "timeline": { "type": "string", "maxLength": 50 },
+        "highlights": { "type": "array" }
+      },
+      "required": ["id", "title", "description"]
+    },
+    "ContactMessage": {
+      "title": "Contact Message",
+      "description": "Messages sent by site visitors through the contact form.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "maxLength": 100 },
+        "name": { "type": "string", "maxLength": 100 },
+        "email": { "type": "string", "maxLength": 100 },
+        "service": { "type": "string", "maxLength": 150 },
+        "message": { "type": "string", "maxLength": 2000 },
+        "createdAt": { "type": "string" },
+        "read": { "type": "boolean" }
+      },
+      "required": ["name", "email", "message", "createdAt"]
+    },
+    "AdminUser": {
+      "title": "Admin User",
+      "description": "Authorized administrator record for website management.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "maxLength": 128 },
+        "email": { "type": "string", "maxLength": 100 },
+        "role": { "type": "string", "enum": ["admin"] },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "role"]
+    }
+  },
+  "firestore": {
+    "/portfolio_settings/{settingsId}": {
+      "schema": { "$ref": "#/entities/PersonalInfo" },
+      "description": "Site-wide personal information and settings document."
+    },
+    "/skills/{skillId}": {
+      "schema": { "$ref": "#/entities/SkillItem" },
+      "description": "Collection of technical and creative skills."
+    },
+    "/projects/{projectId}": {
+      "schema": { "$ref": "#/entities/ProjectItem" },
+      "description": "Collection of featured and in-lab projects."
+    },
+    "/services/{serviceId}": {
+      "schema": { "$ref": "#/entities/ServiceItem" },
+      "description": "Collection of professional service offerings."
+    },
+    "/messages/{messageId}": {
+      "schema": { "$ref": "#/entities/ContactMessage" },
+      "description": "Inquiries submitted by website visitors."
+    },
+    "/admins/{userId}": {
+      "schema": { "$ref": "#/entities/AdminUser" },
+      "description": "Authorized admin users mapping."
+    }
+  }
+}
