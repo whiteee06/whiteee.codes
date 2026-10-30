@@ -1,12 +1,12 @@
 {
-  "projectId": "spatial-star-d1ttq",
-  "appId": "1:603100024173:web:bb06ed54e3bef8bf42de64",
-  "apiKey": "AIzaSyBI70Aoq1DRsUCZekAO13puF8-YH9m5GZc",
-  "authDomain": "spatial-star-d1ttq.firebaseapp.com",
-  "firestoreDatabaseId": "ai-studio-nithiarasugportf-672973b3-0081-4cc5-8045-42fdf745a92c",
-  "storageBucket": "spatial-star-d1ttq.firebasestorage.app",
-  "messagingSenderId": "603100024173",
-  "measurementId": "",
-  "oAuthClientId": "603100024173-qaafefcaunap5n4501lbhvt0s065g23i.apps.googleusercontent.com",
+  "projectId": "mywebsite-9f1dc",
+  "appId": "1:785981859266:web:6929896dfef3a3aa50a25b",
+  "apiKey": "AIzaSyDK-G1jDrE5qW0NlxAVMICUHN-On3Fdzec",
+  "authDomain": "mywebsite-9f1dc.firebaseapp.com",
+  "firestoreDatabaseId": "(default)",
+  "storageBucket": "mywebsite-9f1dc.firebasestorage.app",
+  "messagingSenderId": "785981859266",
+  "measurementId": "G-XEG5994ETK",
+  "oAuthClientId": "",
   "recaptchaSiteKey": ""
 }
