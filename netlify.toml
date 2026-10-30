@@ -2,6 +2,10 @@
   command = "npm run build"
   publish = "dist"
 
+[build.environment]
+  # bun.lock uses the Bun 1.3 lockfile format; pin Bun so the install step can read it
+  BUN_VERSION = "1.3.12"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
